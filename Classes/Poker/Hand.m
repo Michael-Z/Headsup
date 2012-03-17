@@ -477,8 +477,8 @@ MadeHand *histogramHand = nil;
 	Card *card4 = (Card*)[cards objectAtIndex:4];
 	
 	return 
-	(card0.rank == card1.rank) && (card2.rank == card4.rank) ||
-	(card0.rank == card2.rank) && (card3.rank == card4.rank);
+	((card0.rank == card1.rank) && (card2.rank == card4.rank)) ||
+	((card0.rank == card2.rank) && (card3.rank == card4.rank));
 }
 
 + (BOOL) isFlush:(NSArray*)cards {
@@ -503,7 +503,7 @@ MadeHand *histogramHand = nil;
 	Card *card4 = (Card*)[cards objectAtIndex:4];
 	return 
 	(((card0.rank + 1) == card1.rank) ||
-	 (card0.rank == kRankAce) && (card1.rank == kRankTwo)
+	 ((card0.rank == kRankAce) && (card1.rank == kRankTwo))
 	) && 
 	((card1.rank + 1) == card2.rank) &&
 	((card2.rank + 1) == card3.rank) && 
@@ -531,9 +531,9 @@ MadeHand *histogramHand = nil;
 	Card *card4 = (Card*)[cards objectAtIndex:4];
 	
 	return 
-	(card0.rank == card1.rank) && (card2.rank == card3.rank) ||
-	(card0.rank == card1.rank) && (card3.rank == card4.rank) ||
-	(card1.rank == card2.rank) && (card3.rank == card4.rank);
+	((card0.rank == card1.rank) && (card2.rank == card3.rank)) ||
+	((card0.rank == card1.rank) && (card3.rank == card4.rank)) ||
+	((card1.rank == card2.rank) && (card3.rank == card4.rank));
 }
 
 + (BOOL) isOnePair:(NSArray*)cards {
@@ -927,15 +927,15 @@ MadeHand *histogramHand = nil;
 		Card *c3 = (Card*)[cards objectAtIndex:i+3];
 		Card *c4 = (Card*)[cards objectAtIndex:i+4];
 		
-		if (c1.rank == c0.rank + 2 &&
+		if ((c1.rank == c0.rank + 2 &&
 			c2.rank == c1.rank + 1 &&
 			c3.rank == c2.rank + 1 &&
-			c4.rank == c3.rank + 2 ||
-			c0.rank == kRankThree &&
+			c4.rank == c3.rank + 2) ||
+			(c0.rank == kRankThree &&
 			c1.rank == kRankFour &&
 			c2.rank == kRankFive &&
 			c3.rank == kRankSeven &&
-			((Card*)[cards lastObject]).rank == kRankAce
+			((Card*)[cards lastObject]).rank == kRankAce)
 			) {
 			retval = YES;
 			break;
@@ -951,17 +951,17 @@ MadeHand *histogramHand = nil;
 			Card *c4 = (Card*)[cards objectAtIndex:i+4];
 			Card *c5 = (Card*)[cards objectAtIndex:i+5];
 			
-			if (c1.rank == c0.rank + 1 &&
+			if ((c1.rank == c0.rank + 1 &&
 				c2.rank == c1.rank + 2 &&
 				c3.rank == c2.rank + 1 &&
 				c4.rank == c3.rank + 2 &&
-				c5.rank == c4.rank + 1 ||
-				c0.rank == kRankTwo &&
+				c5.rank == c4.rank + 1) ||
+				(c0.rank == kRankTwo &&
 				c1.rank == kRankFour &&
 				c2.rank == kRankFive &&
 				c3.rank == kRankSeven &&
 				c4.rank == kRankEight &&
-				((Card*)[cards lastObject]).rank == kRankAce
+				((Card*)[cards lastObject]).rank == kRankAce)
 				) {
 				retval = YES;
 				break;
@@ -1012,8 +1012,8 @@ MadeHand *histogramHand = nil;
 			Card *highest = (Card*)[cards objectAtIndex:i+3];
 			
 			if (highest.rank - lowest.rank == 4 ||
-				highest.rank == kRankFive &&
-				((Card*)[cards lastObject]).rank == kRankAce
+				(highest.rank == kRankFive &&
+				((Card*)[cards lastObject]).rank == kRankAce)
 				) {
 				retval = YES;
 				break;
@@ -3625,12 +3625,12 @@ MadeHand *histogramHand = nil;
 
 + (BOOL) isFelting:(Card*)c0 :(Card*)c1 {
 	return 
-	c0.rank == kRankAce && c1.rank == kRankAce ||
-	c0.rank == kRankKing && c1.rank == kRankKing ||
-	c0.rank == kRankQueen && c1.rank == kRankQueen ||
-	c0.rank == kRankJack && c1.rank == kRankJack ||
-	c0.rank == kRankAce && c1.rank == kRankKing ||
-	c0.rank == kRankKing && c1.rank == kRankAce;
+	(c0.rank == kRankAce && c1.rank == kRankAce) ||
+	(c0.rank == kRankKing && c1.rank == kRankKing) ||
+	(c0.rank == kRankQueen && c1.rank == kRankQueen) ||
+	(c0.rank == kRankJack && c1.rank == kRankJack) ||
+	(c0.rank == kRankAce && c1.rank == kRankKing) ||
+	(c0.rank == kRankKing && c1.rank == kRankAce);
 }
 
 + (BOOL) isPocketPair:(Card*)c0 :(Card*)c1 {
@@ -3661,15 +3661,15 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit == c1.suit && (
-	c0.rank == kRankFour && c1.rank == kRankFive ||
-	c0.rank == kRankFive && c1.rank == kRankSix ||
-	c0.rank == kRankSix && c1.rank == kRankSeven ||
-	c0.rank == kRankSeven && c1.rank == kRankEight ||
-	c0.rank == kRankEight && c1.rank == kRankNine ||
-	c0.rank == kRankNine && c1.rank == kRankTen ||
-	c0.rank == kRankTen && c1.rank == kRankJack ||
-	c0.rank == kRankJack && c1.rank == kRankQueen ||
-	c0.rank == kRankQueen && c1.rank == kRankKing
+	(c0.rank == kRankFour && c1.rank == kRankFive) ||
+	(c0.rank == kRankFive && c1.rank == kRankSix) ||
+	(c0.rank == kRankSix && c1.rank == kRankSeven) ||
+	(c0.rank == kRankSeven && c1.rank == kRankEight) ||
+	(c0.rank == kRankEight && c1.rank == kRankNine) ||
+	(c0.rank == kRankNine && c1.rank == kRankTen) ||
+	(c0.rank == kRankTen && c1.rank == kRankJack) ||
+	(c0.rank == kRankJack && c1.rank == kRankQueen) ||
+	(c0.rank == kRankQueen && c1.rank == kRankKing)
 	);
 }
 
@@ -3686,14 +3686,14 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit == c1.suit && (
-						   c0.rank == kRankFour && c1.rank == kRankSix ||
-						   c0.rank == kRankFive && c1.rank == kRankSeven ||
-						   c0.rank == kRankSix && c1.rank == kRankEight ||
-						   c0.rank == kRankSeven && c1.rank == kRankNine ||
-						   c0.rank == kRankEight && c1.rank == kRankTen ||
-						   c0.rank == kRankNine && c1.rank == kRankJack ||
-						   c0.rank == kRankTen && c1.rank == kRankQueen ||
-						   c0.rank == kRankJack && c1.rank == kRankKing
+						   (c0.rank == kRankFour && c1.rank == kRankSix) ||
+						   (c0.rank == kRankFive && c1.rank == kRankSeven) ||
+						   (c0.rank == kRankSix && c1.rank == kRankEight) ||
+						   (c0.rank == kRankSeven && c1.rank == kRankNine) ||
+						   (c0.rank == kRankEight && c1.rank == kRankTen) ||
+						   (c0.rank == kRankNine && c1.rank == kRankJack) ||
+						   (c0.rank == kRankTen && c1.rank == kRankQueen) ||
+						   (c0.rank == kRankJack && c1.rank == kRankKing)
 						   );
 }
 
@@ -3710,17 +3710,17 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit == c1.suit && (
-						   c0.rank == kRankEight && c1.rank == kRankJack ||
-						   c0.rank == kRankNine && c1.rank == kRankQueen ||
-						   c0.rank == kRankTen && c1.rank == kRankKing
+						   (c0.rank == kRankEight && c1.rank == kRankJack) ||
+						   (c0.rank == kRankNine && c1.rank == kRankQueen) ||
+						   (c0.rank == kRankTen && c1.rank == kRankKing)
 						   );
 }
 
 +(BOOL) isAQOffSuit:(Card*)c0 :(Card*)c1 {
 	return 
 	(c0.suit != c1.suit &&
-	 (c0.rank == kRankAce && c1.rank == kRankQueen ||
-	  c0.rank == kRankQueen && c1.rank == kRankAce));
+	 ((c0.rank == kRankAce && c1.rank == kRankQueen) ||
+	  (c0.rank == kRankQueen && c1.rank == kRankAce)));
 }
 
 + (BOOL) isTier2:(Card*)c0 :(Card*)c1 {
@@ -3744,13 +3744,13 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit != c1.suit && (
-						   c0.rank == kRankSix && c1.rank == kRankSeven ||
-						   c0.rank == kRankSeven && c1.rank == kRankEight ||
-						   c0.rank == kRankEight && c1.rank == kRankNine ||
-						   c0.rank == kRankNine && c1.rank == kRankTen ||
-						   c0.rank == kRankTen && c1.rank == kRankJack ||
-						   c0.rank == kRankJack && c1.rank == kRankQueen ||
-						   c0.rank == kRankQueen && c1.rank == kRankKing
+						   (c0.rank == kRankSix && c1.rank == kRankSeven) ||
+						   (c0.rank == kRankSeven && c1.rank == kRankEight) ||
+						   (c0.rank == kRankEight && c1.rank == kRankNine) ||
+						   (c0.rank == kRankNine && c1.rank == kRankTen) ||
+						   (c0.rank == kRankTen && c1.rank == kRankJack) ||
+						   (c0.rank == kRankJack && c1.rank == kRankQueen) ||
+						   (c0.rank == kRankQueen && c1.rank == kRankKing)
 						   );	
 }
 
@@ -3767,11 +3767,11 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit != c1.suit && (
-						   c0.rank == kRankTen && c1.rank == kRankQueen ||
-						   c0.rank == kRankTen && c1.rank == kRankKing ||
-						   c0.rank == kRankTen && c1.rank == kRankAce ||
-						   c0.rank == kRankJack && c1.rank == kRankKing ||
-						   c0.rank == kRankJack && c1.rank == kRankAce
+						   (c0.rank == kRankTen && c1.rank == kRankQueen) ||
+						   (c0.rank == kRankTen && c1.rank == kRankKing) ||
+						   (c0.rank == kRankTen && c1.rank == kRankAce) ||
+						   (c0.rank == kRankJack && c1.rank == kRankKing) ||
+						   (c0.rank == kRankJack && c1.rank == kRankAce)
 						   );	
 }
 
@@ -3788,12 +3788,12 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit == c1.suit && (
-						   c0.rank == kRankTwo && c1.rank == kRankFive ||
-						   c0.rank == kRankThree && c1.rank == kRankSix ||
-						   c0.rank == kRankFour && c1.rank == kRankSeven ||
-						   c0.rank == kRankFive && c1.rank == kRankEight ||
-						   c0.rank == kRankSix && c1.rank == kRankNine ||
-						   c0.rank == kRankSeven && c1.rank == kRankTen
+						   (c0.rank == kRankTwo && c1.rank == kRankFive) ||
+						   (c0.rank == kRankThree && c1.rank == kRankSix) ||
+						   (c0.rank == kRankFour && c1.rank == kRankSeven) ||
+						   (c0.rank == kRankFive && c1.rank == kRankEight) ||
+						   (c0.rank == kRankSix && c1.rank == kRankNine) ||
+						   (c0.rank == kRankSeven && c1.rank == kRankTen)
 						   );
 }
 
@@ -3810,10 +3810,10 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit == c1.suit && (
-						   c0.rank == kRankTwo && c1.rank == kRankThree ||
-						   c0.rank == kRankThree && c1.rank == kRankFour ||
-						   c0.rank == kRankTwo && c1.rank == kRankFour ||
-						   c0.rank == kRankThree && c1.rank == kRankFive
+						   (c0.rank == kRankTwo && c1.rank == kRankThree) ||
+						   (c0.rank == kRankThree && c1.rank == kRankFour) ||
+						   (c0.rank == kRankTwo && c1.rank == kRankFour) ||
+						   (c0.rank == kRankThree && c1.rank == kRankFive)
 						   );
 }
 
@@ -3880,12 +3880,12 @@ MadeHand *histogramHand = nil;
 	
 	return 
 	c0.suit != c1.suit && (
-						   c0.rank == kRankFour && c1.rank == kRankSix ||
-						   c0.rank == kRankFive && c1.rank == kRankSeven ||
-						   c0.rank == kRankSix && c1.rank == kRankEight ||
-						   c0.rank == kRankSeven && c1.rank == kRankNine ||
-						   c0.rank == kRankEight && c1.rank == kRankTen ||
-						   c0.rank == kRankNine && c1.rank == kRankJack
+						   (c0.rank == kRankFour && c1.rank == kRankSix) ||
+						   (c0.rank == kRankFive && c1.rank == kRankSeven) ||
+						   (c0.rank == kRankSix && c1.rank == kRankEight) ||
+						   (c0.rank == kRankSeven && c1.rank == kRankNine) ||
+						   (c0.rank == kRankEight && c1.rank == kRankTen) ||
+						   (c0.rank == kRankNine && c1.rank == kRankJack)
 						   );
 }
 
@@ -4042,7 +4042,7 @@ MadeHand *histogramHand = nil;
 			// suited ace. to qualify as a premium hand, otherCard0 and otherCard1 need
 			// to be coordinated with either suitedCard or the ace card.
 			retval = (otherCard0.rank == otherCard1.rank ||
-					  otherCard0.rank >= kRankTen && otherCard1.rank >= kRankTen ||
+					  (otherCard0.rank >= kRankTen && otherCard1.rank >= kRankTen) ||
 					  card2.rank - card0.rank <= 4);
 		}
 	} else {
@@ -4089,7 +4089,7 @@ MadeHand *histogramHand = nil;
 		
 	if (otherCard0 != nil) {
 		retval = (otherCard0.rank == otherCard1.rank ||
-				  otherCard0.rank >= kRankTen && otherCard1.rank >= kRankTen ||
+				  (otherCard0.rank >= kRankTen && otherCard1.rank >= kRankTen) ||
 				  card3.rank - card0.rank <= 4);
 	}
 	

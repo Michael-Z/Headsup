@@ -344,7 +344,9 @@
 			break;
 		case kRankTwo:
 			retval = 2;
-			break;			
+			break;		
+        default:
+            retval = 0;
 	}			
 		
 	return retval;

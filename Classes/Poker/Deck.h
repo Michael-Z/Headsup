@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Constants.h"
+
 @class Card;
 
 @interface Deck : NSObject {

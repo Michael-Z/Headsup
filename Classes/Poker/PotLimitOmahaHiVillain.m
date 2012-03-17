@@ -185,7 +185,7 @@
 	if ([gameModeView didHeroMakeNoMove] || [gameModeView didHeroCheck]) {
 		// villain is first to act or checked to.
 		// if villain won't fold and is checked to, he is going to bet 100% of the time.
-		if ([gameModeView didHeroCheck] && !willFold
+		if (([gameModeView didHeroCheck] && !willFold)
 			|| [self isRand:betPercentage])
 			move = [[Move alloc] initWithMove:kMoveBet Amount:[gameModeView potSizedBetForVillain]];
 		else
@@ -474,11 +474,11 @@
 		NSInteger potentialPot = pot + effectiveStack;
 		
 		if (hand1.outs >= 8) {
-			if (callAmount == gameModeView.BB || callAmount * 3 <= pot && callAmount * 5 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 3 <= pot && callAmount * 5 <= potentialPot))
 				move.move = kMoveCall;
 		} else if (hand1.outs >= 4) {
-			if (callAmount == gameModeView.BB || callAmount * 6 <= pot && callAmount * 12 <= potentialPot)
-				move.move == kMoveCall;
+			if (callAmount == gameModeView.BB || (callAmount * 6 <= pot && callAmount * 12 <= potentialPot))
+				move.move = kMoveCall;
 		}		
 	}		
 	
@@ -615,11 +615,11 @@
 		NSInteger potentialPot = pot + effectiveStack;
 
 		if (hand1.outs >= 8) {
-			if (callAmount == gameModeView.BB || callAmount * 3 <= pot && callAmount * 5 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 3 <= pot && callAmount * 5 <= potentialPot))
 				move.move = kMoveCall;
 		} else if (hand1.outs >= 4) {
-			if (callAmount == gameModeView.BB || callAmount * 6 <= pot && callAmount * 12 <= potentialPot)
-				move.move == kMoveCall;
+			if (callAmount == gameModeView.BB || (callAmount * 6 <= pot && callAmount * 12 <= potentialPot))
+				move.move = kMoveCall;
 		}		
 	}	
 	
@@ -707,7 +707,7 @@
 		NSInteger pot = [gameModeView effectivePotSizeVillainsTurn];
 		
 		if (callAmount * 3 <= pot) {
-			move.move == kMoveCall;
+			move.move = kMoveCall;
 		}
 	}
 	

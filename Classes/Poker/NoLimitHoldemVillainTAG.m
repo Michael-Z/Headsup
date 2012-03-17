@@ -106,11 +106,11 @@
 }
 
 - (BOOL) isMonsterDraw:(MadeHand*)hand {
-	return	hand.fd && hand.oesd ||
-			hand.fd && hand.dgsd ||
-			hand.fd && hand.tocd ||
-			(hand.type == kTypeNonTopPair || hand.type == kTypeTopPair || hand.type == kTypeOverPair) &&
-	(hand.fd || hand.oesd || hand.dgsd);
+	return	(hand.fd && hand.oesd) ||
+			(hand.fd && hand.dgsd) ||
+			(hand.fd && hand.tocd) ||
+			((hand.type == kTypeNonTopPair || hand.type == kTypeTopPair || hand.type == kTypeOverPair) &&
+	(hand.fd || hand.oesd || hand.dgsd));
 }
 
 - (BOOL) isDecentDraw:(MadeHand*)hand {
@@ -435,13 +435,13 @@
 		NSInteger potentialPot = pot + callAmount + effectiveStack;
 		
 		if (hand1.fd || hand1.oesd || hand1.dgsd) {
-			if (callAmount == gameModeView.BB || callAmount * 1 <= pot && callAmount * 5 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 1 <= pot && callAmount * 5 <= potentialPot))
 				move.move = kMoveCall;
 		} else if (hand1.gssd) {
-			if (callAmount == gameModeView.BB || callAmount * 2 <= pot && callAmount * 12 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 2 <= pot && callAmount * 12 <= potentialPot))
 				move.move = kMoveCall;
 		} else if (hand1.type == kTypeNonTopPair || hand1.type == kTypeTopPair || hand1.type == kTypeOverPair) {
-			if (callAmount == gameModeView.BB || callAmount * 3 <= pot && callAmount * 15 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 3 <= pot && callAmount * 15 <= potentialPot))
 				move.move = kMoveCall;
 		}		
 	}		
@@ -575,13 +575,13 @@
 		NSInteger potentialPot = pot + callAmount + effectiveStack;
 
 		if (hand1.fd || hand1.oesd || hand1.dgsd) {
-			if (callAmount == gameModeView.BB || callAmount * 1 <= pot && callAmount * 5 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 1 <= pot && callAmount * 5 <= potentialPot))
 				move.move = kMoveCall;
 		} else if (hand1.gssd) {
-			if (callAmount == gameModeView.BB || callAmount * 2 <= pot && callAmount * 12 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 2 <= pot && callAmount * 12 <= potentialPot))
 				move.move = kMoveCall;
 		} else if (hand1.type == kTypeNonTopPair || hand1.type == kTypeTopPair || hand1.type == kTypeOverPair) {
-			if (callAmount == gameModeView.BB || callAmount * 3 <= pot && callAmount * 15 <= potentialPot)
+			if (callAmount == gameModeView.BB || (callAmount * 3 <= pot && callAmount * 15 <= potentialPot))
 				move.move = kMoveCall;
 		}		
 	}	
