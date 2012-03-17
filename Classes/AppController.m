@@ -1,8 +1,8 @@
 
 
 #import "AppController.h"
-#import "InterstitialSampleViewController.h"
-#import "AdMobInterstitialAd.h"
+//#import "InterstitialSampleViewController.h"
+//#import "AdMobInterstitialAd.h"
 #import "Mobclix.h"
 
 #import "math.h"
@@ -347,6 +347,7 @@
 	if (aGameKitClass != nil) {*/
 	
 	if (BUILD == HU_HOLDEM_FREE) {
+        /*
 		interstitialViewController = [[InterstitialSampleViewController alloc] init];
 		interstitialViewController.appController = self;
 
@@ -357,7 +358,7 @@
 										  delegate:interstitialViewController 
 							  interstitialDelegate:interstitialViewController];
 		
-		interstitialViewController.interstitialAd = interstitialAd;
+		interstitialViewController.interstitialAd = interstitialAd;*/
 	}
 		
 	// Please note that while applicationDidFinishLaunching is still executing, 
@@ -968,6 +969,7 @@
 	[self reportAppOpenToMobclix];
 	
 	if (BUILD == HU_HOLDEM_FREE) {
+        /*
 		// only request a video interstitial if one is not being played.
 		if (interstitialViewController.interstitialAd == nil) {
 			interstitialAd = 
@@ -976,7 +978,7 @@
 								  interstitialDelegate:interstitialViewController];
 			
 			interstitialViewController.interstitialAd = interstitialAd;	
-		}
+		}*/
 	}
 }
 
@@ -993,7 +995,7 @@
 
 - (void) dealloc
 {	
-	[interstitialViewController release];
+	//[interstitialViewController release];
 	
 	//[inviteView release];
 	

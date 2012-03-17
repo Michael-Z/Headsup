@@ -15,7 +15,7 @@
 #import "TCPServer.h"
 #import "Constants.h"
 #import "MyViewController.h"
-#import "AdMobInterstitialAd.h"
+//#import "AdMobInterstitialAd.h"
 
 #define HOLDEM_APPLICATION_DATA_LENGTH 41
 #define OMAHA_APPLICATION_DATA_LENGTH 45
@@ -54,9 +54,9 @@ GKSessionDelegate,
 GKMatchDelegate,
 GameCenterManagerDelegate>
 {
-	AdMobInterstitialAd *interstitialAd;
+	//AdMobInterstitialAd *interstitialAd;
 	
-	InterstitialSampleViewController *interstitialViewController;
+	//InterstitialSampleViewController *interstitialViewController;
 	
 	IBOutlet UIWindow*			_window;
 	Picker*				_picker;
