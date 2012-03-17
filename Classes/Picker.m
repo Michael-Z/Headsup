@@ -429,9 +429,9 @@ UILabel *connectingToGameCenterLabel;
 		NSString *versionString;
 		
 		if (BUILD == HU_HOLDEM)
-			versionString = @"Headsup Poker 1.9.2";
+			versionString = @"Headsup Poker 1.9.3";
 		else if (BUILD == HU_HOLDEM_FREE)
-			versionString = @"Headsup Poker 1.9.2";
+			versionString = @"Headsup Poker 1.9.3";
 		else if (BUILD == HU_OMAHA)
 			versionString = @"Headsup Omaha Version 1.0.1";
 		else if (BUILD == HU_OMAHA_FREE)
