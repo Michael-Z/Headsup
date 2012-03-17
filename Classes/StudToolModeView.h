@@ -27,7 +27,7 @@
 	IBOutlet UILabel *whoWonLabel;
 	IBOutlet UILabel *heroHandLabel, *villainHandLabel;
 	
-	IBOutlet UIButton *newHandButton, *nextStreetButton, *allInButton;
+	IBOutlet UIButton *nextHandButton, *nextStreetButton, *allInButton;
 	IBOutlet UIButton *revealMyHandToMyselfButton;
 	
 	IBOutlet UIActivityIndicatorView *waitingIndicator;
@@ -97,7 +97,7 @@
 
 
 
-@property (nonatomic, retain) IBOutlet UIButton *newHandButton;
+@property (nonatomic, retain) IBOutlet UIButton *nextHandButton;
 @property (nonatomic, retain) IBOutlet UIButton *nextStreetButton;
 @property (nonatomic, retain) IBOutlet UIButton *allInButton;
 @property (nonatomic, retain) IBOutlet UIButton *revealMyHandToMyselfButton;

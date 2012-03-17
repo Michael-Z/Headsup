@@ -33,7 +33,7 @@
 	IBOutlet UIButton *heroBlindButton, *villainBlindButton;
 	IBOutlet UILabel *heroActLabel, *villainActLabel;
 	
-	IBOutlet UIButton *newHandButton, *nextStreetButton, *allInButton;
+	IBOutlet UIButton *nextHandButton, *nextStreetButton, *allInButton;
 	IBOutlet UIButton *revealMyHandToMyselfButton;//, *showMyHandToVillainButton;
 	
 	IBOutlet UIActivityIndicatorView *waitingIndicator;
@@ -104,7 +104,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *villainActLabel;
 
 
-@property (nonatomic, retain) IBOutlet UIButton *newHandButton;
+@property (nonatomic, retain) IBOutlet UIButton *nextHandButton;
 @property (nonatomic, retain) IBOutlet UIButton *nextStreetButton;
 @property (nonatomic, retain) IBOutlet UIButton *allInButton;
 @property (nonatomic, retain) IBOutlet UIButton *revealMyHandToMyselfButton;

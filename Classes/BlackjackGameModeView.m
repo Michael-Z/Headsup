@@ -642,7 +642,7 @@
 	// 21 and it cannot be in a splitting hand.
 	if (cardsNum == 2 && 
 		(party == kPartyDealer || 
-		 party == kPartyHero && heroOtherCardsNum == 0)) {
+		 (party == kPartyHero && heroOtherCardsNum == 0))) {
 			
 		Card *card0 = ((CardView*)[cardViews objectAtIndex:0]).card;
 		Card *card1 = ((CardView*)[cardViews objectAtIndex:1]).card;

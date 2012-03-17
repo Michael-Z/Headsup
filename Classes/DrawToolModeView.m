@@ -73,7 +73,7 @@
 @synthesize heroDrawActionLabel;
 @synthesize villainDrawActionLabel;
 
-@synthesize newHandButton;
+@synthesize nextHandButton;
 @synthesize allInButton;
 @synthesize patDiscardButton;
 @synthesize revealMyHandToMyselfButton;
@@ -131,7 +131,7 @@
 	villainCard3View.card = nil;
 	villainCard4View.card = nil;
 		
-	[newHandButton setEnabled:YES];
+	[nextHandButton setEnabled:YES];
 	
 	allInButton.hidden = YES;
 	patDiscardButton.hidden = YES;
@@ -366,30 +366,30 @@
 }
 
 - (void) setEnabledAllButtons: (BOOL)enabled {
-	[newHandButton setEnabled:enabled];
+	[nextHandButton setEnabled:enabled];
 	[patDiscardButton setEnabled:enabled];
 	[allInButton setEnabled:enabled];
 	[revealMyHandToMyselfButton setEnabled:enabled];
 }
 
 - (void) pushButtonsSnapshot {
-	newHandButtonEnabled = [newHandButton isEnabled];
+	newHandButtonEnabled = [nextHandButton isEnabled];
 	allInButtonEnabled = [allInButton isEnabled];
 	revealMyHandToMyselfButtonEnabled = [revealMyHandToMyselfButton isEnabled];
 }
 
 - (void) popButtonsSnapshot {
-	[newHandButton setEnabled:newHandButtonEnabled];
+	[nextHandButton setEnabled:newHandButtonEnabled];
 	[allInButton setEnabled:allInButtonEnabled];
 	[revealMyHandToMyselfButton setEnabled:revealMyHandToMyselfButtonEnabled];
 }
 
 - (void) dealNewHand {
-	newHandButton.hidden = YES;
+	nextHandButton.hidden = YES;
 	allInButton.hidden = YES;
 	patDiscardButton.hidden = YES;
 	revealMyHandToMyselfButton.hidden = YES;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[patDiscardButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];
@@ -531,9 +531,9 @@
 	// intialize view for a new hand
 	[self setEnabledAllButtons:YES];
 	
-	newHandButton.hidden = NO;
+	nextHandButton.hidden = NO;
 	revealMyHandToMyselfButton.hidden = NO;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];
 	
 	if (!dealer) {
@@ -605,8 +605,8 @@
 }
 
 - (void) endAllIn {
-	newHandButton.hidden = NO;
-	[newHandButton setEnabled:YES];
+	nextHandButton.hidden = NO;
+	[nextHandButton setEnabled:YES];
 		
 	[handFSM input:kEventDealt];		
 	
@@ -694,11 +694,11 @@
 	[villainCard3View setNeedsDisplay];
 	[villainCard4View setNeedsDisplay];
 	
-	newHandButton.hidden = YES;
+	nextHandButton.hidden = YES;
 	allInButton.hidden = YES;
 	revealMyHandToMyselfButton.hidden = YES;
 	patDiscardButton.hidden = YES;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];
 	[patDiscardButton setNeedsDisplay];

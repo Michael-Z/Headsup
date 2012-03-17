@@ -28,7 +28,7 @@
 	
 	IBOutlet UILabel *heroDrawActionLabel, *villainDrawActionLabel;
 	
-	IBOutlet UIButton *newHandButton, *allInButton;
+	IBOutlet UIButton *nextHandButton, *allInButton;
 	IBOutlet UIButton *patDiscardButton;
 	IBOutlet UIButton *revealMyHandToMyselfButton;
 	
@@ -95,7 +95,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *villainDrawActionLabel;
 
 
-@property (nonatomic, retain) IBOutlet UIButton *newHandButton;
+@property (nonatomic, retain) IBOutlet UIButton *nextHandButton;
 @property (nonatomic, retain) IBOutlet UIButton *allInButton;
 @property (nonatomic, retain) IBOutlet UIButton *patDiscardButton;
 @property (nonatomic, retain) IBOutlet UIButton *revealMyHandToMyselfButton;

@@ -16,7 +16,7 @@
 @class Deck;
 @class Hand;
 @class HoldemHand;
-@class NoLimitHoldemVillain;
+@protocol  NoLimitHoldemVillain;
 
 
 @interface GameModeView : UIView {
@@ -73,7 +73,7 @@
 	
 	enum GameMode gameMode;
 	
-	NoLimitHoldemVillain *villain;
+	NSObject<NoLimitHoldemVillain> *villain;
 	
 	Hand *hand;
 	Deck *deck;

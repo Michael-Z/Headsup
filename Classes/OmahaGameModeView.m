@@ -208,7 +208,7 @@
 
 - (void) showMyCardsButton {
 	if (gameMode == kSinglePhoneMode || 
-		(gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && ![[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP]) {
+		((gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && ![[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP])) {
 		revealMyHandToMyselfButton.hidden = NO;
 		[revealMyHandToMyselfButton setEnabled:YES];
 	}
@@ -968,7 +968,7 @@
 // hide all cards and my cards button
 - (void) hideAllCardsAndButton {
 	if (gameMode == kSinglePlayerMode ||
-		(gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && [[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP]) {
+		((gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && [[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP])) {
 		heroCard0View.faceUp = YES;
 		heroCard1View.faceUp = YES;
 		heroCard2View.faceUp = YES;
@@ -2659,10 +2659,10 @@
 			// check if this street is over
 			if (([[heroActionLabel text] isEqualToString:CHECK_ACTION] ||
 				 [[villainActionLabel text] isEqualToString:CHECK_ACTION]) ||
-				(([[heroActionLabel text] isEqualToString:CALL_ACTION] ||
+				((([[heroActionLabel text] isEqualToString:CALL_ACTION] ||
 				  [[villainActionLabel text] isEqualToString:CALL_ACTION])) &&
 				![self didHeroPostBB] && ![self didVillainPostBB] &&
-				[self heroBetOrRaiseAmount] == [self villainBetOrRaiseAmount]) {
+				[self heroBetOrRaiseAmount] == [self villainBetOrRaiseAmount])) {
 				// this street is over
 				[self dealNextStreet];
 			} else {
@@ -2745,7 +2745,7 @@
 	[handCountLabel setText:[NSString stringWithFormat:@"%d", ++handCount]];
 
 	if (gameMode == kSinglePlayerMode ||
-		(gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && [[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP]) {
+		((gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && [[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP])) {
 		heroCard0View.faceUp = YES;
 		heroCard1View.faceUp = YES;
 		heroCard1View.faceUp = YES;
@@ -2865,7 +2865,7 @@
 	[self showThinking];
 		
 	if (([self villainStackSize] == 0) ||
-		([self heroStackSize] == 0) && ([self heroBetOrRaiseAmount] <= [self villainBetOrRaiseAmount])) {
+		(([self heroStackSize] == 0) && ([self heroBetOrRaiseAmount] <= [self villainBetOrRaiseAmount]))) {
 		// this is necessary to set isHandStarted correctly because this is a special "no move all-in" hand.
 		[self addMove];
 		[self handleAllIn];
@@ -3002,7 +3002,7 @@
 	isDealingGoingOn = NO;
 	
 	if (([self heroStackSize] == 0) ||
-		([self villainStackSize] == 0) && ([self villainBetOrRaiseAmount] <= [self heroBetOrRaiseAmount])) {
+		(([self villainStackSize] == 0) && ([self villainBetOrRaiseAmount] <= [self heroBetOrRaiseAmount]))) {
 		// this is necessary to set isHandStarted correctly because this is a special "no move all-in" hand.
 		[self addMove];
 		[self handleAllIn];
@@ -3092,7 +3092,7 @@
 	[handCountLabel setText:@"0"];
 	
 	if (gameMode == kSinglePlayerMode ||
-		(gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && [[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP]) {
+		((gameMode == kDualPhoneMode || gameMode == kGameCenterMode) && [[NSUserDefaults standardUserDefaults] boolForKey:KEY_HERO_HOLE_CARDS_FACE_UP])) {
 		heroCard0View.faceUp = YES;
 		heroCard1View.faceUp = YES;
 		heroCard2View.faceUp = YES;

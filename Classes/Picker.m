@@ -23,11 +23,12 @@ Version: 1.5
 
 #define kOffset 5.0
 
-@interface Picker ()
+@interface Picker () {
 enum GameName gameName;
 UIButton *authenticateGameCenter;
 UIButton *holdemGameCenter, *leaderboards, *achievements;
 UILabel *connectingToGameCenterLabel;
+}
 
 @property (nonatomic, retain, readwrite) BrowserViewController* bvc;
 @property (nonatomic, retain, readwrite) UILabel* gameNameLabel;

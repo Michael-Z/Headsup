@@ -2165,7 +2165,7 @@
 	
 	if (omahaToolModeViewController == nil) {
 		omahaToolModeViewController = 
-		[[UIViewController alloc] initWithNibName:
+		[[MyViewController alloc] initWithNibName:
 		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"OmahaToolModeAdView" : @"OmahaToolModeView"
 										   bundle:[NSBundle mainBundle]];
 		
@@ -2830,11 +2830,11 @@
 		if (villainGame == heroGame &&
 			villainMode == heroMode &&
 			(villainMode ||
-			!villainMode &&
+			(!villainMode &&
 			villainHeroStack == heroVillainStack &&
 			villainVillainStack == heroHeroStack &&
 			villainSmallBlind == heroSmallBlind &&
-			villainBigBlind == heroBigBlind)) {
+			villainBigBlind == heroBigBlind))) {
 			if (heroGame == kGameHoldem) {
 				if (villainMode) {
 					// tool mode
@@ -3816,11 +3816,11 @@
 		if (villainGame == heroGame &&
 			villainMode == heroMode &&
 			(villainMode ||
-			 !villainMode &&
+			 (!villainMode &&
 			 villainHeroStack == heroVillainStack &&
 			 villainVillainStack == heroHeroStack &&
 			 villainSmallBlind == heroSmallBlind &&
-			 villainBigBlind == heroBigBlind)) {
+			 villainBigBlind == heroBigBlind))) {
 				if (heroGame == kGameHoldem) {
 					if (villainMode) {
 						// tool mode

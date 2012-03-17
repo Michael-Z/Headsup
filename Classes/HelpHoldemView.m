@@ -114,7 +114,7 @@
 		@"<p style=\"font-size: 300%;\"> <b>5. I don't have WiFi. Can I still use this app to play heads-up poker?</b></p>"
 		@"<p style=\"font-size: 300%;\"> Unfortunately at this point WiFi is mandatory. However, in the near future this requirement will become obsolete. You will then be able to play Headsup Texas Hold'em even without a WiFi. Also keep in mind you can easily create a WiFi hotspot on your Mac computer and have both iPhones hooked up to the Mac wirelessly and start playing heads-up poker.</p>"
 		
-		/*@"<p style=\"font-size: 300%;\"> Why play heads-up poker on iPhone/iPod touch? </p>"
+		@"<p style=\"font-size: 300%;\"> Why play heads-up poker on iPhone/iPod touch? </p>"
 		@"<p style=\"font-size: 300%;\"> If you have ever tried to play heads up poker with your friends, you probably had an unpleasant experience. You probably had to shuffle and deal cards ALL THE TIME. Inevitably, the game became unbearable at the end because you literally spent most of the time shuffling and dealing cards rather than playing poker! </p>"
 		@"<p style=\"font-size: 300%;\"> What a pity. Heads up poker should have been one of your favorite games if you are a true poker aficionado because you don't ever sit around watching other people play. When you fold, the hand ends, period. So you are always playing, always having fun. Bad cards? No problem, fold 'em and move on to the next hand.</p>"
 		@"<p style=\"font-size: 300%;\"> There used to be live poker and online poker. Now with the introduction of this iPhone app, a third exciting form -- iPhone live poker has arrived on the horizon. Enjoy the best of both worlds. Play hassle free poker with your friends face to face.</p>"

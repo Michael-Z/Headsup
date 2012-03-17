@@ -15,7 +15,7 @@
 @class CardView;
 @class Deck;
 @class Hand;
-@class NoLimitHoldemVillain;
+@class PotLimitOmahaHiVillain;
 
 @interface OmahaGameModeView : UIView {
 	UINavigationController *navController;
@@ -64,7 +64,7 @@
 	
 	enum GameMode gameMode;
 	
-	NoLimitHoldemVillain *villain;	
+	PotLimitOmahaHiVillain *villain;	
 	
 	Hand *hand;
 	Deck *deck;

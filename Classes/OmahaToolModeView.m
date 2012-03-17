@@ -76,7 +76,7 @@
 @synthesize heroActLabel;
 @synthesize villainActLabel;
 
-@synthesize newHandButton;
+@synthesize nextHandButton;
 @synthesize nextStreetButton;
 @synthesize allInButton;
 @synthesize revealMyHandToMyselfButton;
@@ -125,11 +125,11 @@
 	
 	//[newHandButton setEnabled:YES];
 	
-	newHandButton.hidden = YES;
+	nextHandButton.hidden = YES;
 	nextStreetButton.hidden = YES;
 	allInButton.hidden = YES;
 	revealMyHandToMyselfButton.hidden = YES;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[nextStreetButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];
@@ -369,14 +369,14 @@
 	//[allInButton setUserInteractionEnabled:enabled];
 	//[revealMyHandToMyselfButton setUserInteractionEnabled:enabled];
 	
-	[newHandButton setEnabled:enabled];
+	[nextHandButton setEnabled:enabled];
 	[nextStreetButton setEnabled:enabled];
 	[allInButton setEnabled:enabled];
 	[revealMyHandToMyselfButton setEnabled:enabled];
 }
 
 - (void) pushButtonsSnapshot {
-	newHandButtonEnabled = [newHandButton isEnabled];
+	newHandButtonEnabled = [nextHandButton isEnabled];
 	nextStreetButtonEnabled = [nextStreetButton isEnabled];
 	allInButtonEnabled = [allInButton isEnabled];
 	revealMyHandToMyselfButtonEnabled = [revealMyHandToMyselfButton isEnabled];
@@ -388,18 +388,18 @@
 	//[allInButton setUserInteractionEnabled:allInButtonEnabled];
 	//[revealMyHandToMyselfButton setUserInteractionEnabled:revealMyHandToMyselfButtonEnabled];
 	
-	[newHandButton setEnabled:newHandButtonEnabled];
+	[nextHandButton setEnabled:newHandButtonEnabled];
 	[nextStreetButton setEnabled:nextStreetButtonEnabled];
 	[allInButton setEnabled:allInButtonEnabled];
 	[revealMyHandToMyselfButton setEnabled:revealMyHandToMyselfButtonEnabled];
 }
 
 - (void) dealNewHand {
-	newHandButton.hidden = YES;
+	nextHandButton.hidden = YES;
 	nextStreetButton.hidden = YES;
 	allInButton.hidden = YES;
 	revealMyHandToMyselfButton.hidden = YES;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[nextStreetButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];
@@ -517,11 +517,11 @@
 	// intialize view for a new hand
 	[self setEnabledAllButtons:YES];
 	
-	newHandButton.hidden = NO;
+	nextHandButton.hidden = NO;
 	nextStreetButton.hidden = NO;
 	allInButton.hidden = NO;
 	revealMyHandToMyselfButton.hidden = NO;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[nextStreetButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];
@@ -605,11 +605,11 @@
 
 - (void) dealNextStreet {
 	[self setEnabledAllButtons:YES];
-	newHandButton.hidden = NO;
+	nextHandButton.hidden = NO;
 	nextStreetButton.hidden = NO;
 	allInButton.hidden = NO;
 	revealMyHandToMyselfButton.hidden = NO;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[nextStreetButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];	
@@ -884,11 +884,11 @@
 	[villainCard2View setNeedsDisplay];
 	[villainCard3View setNeedsDisplay];
 	
-	newHandButton.hidden = YES;
+	nextHandButton.hidden = YES;
 	nextStreetButton.hidden = YES;
 	allInButton.hidden = YES;
 	revealMyHandToMyselfButton.hidden = YES;
-	[newHandButton setNeedsDisplay];
+	[nextHandButton setNeedsDisplay];
 	[nextStreetButton setNeedsDisplay];
 	[allInButton setNeedsDisplay];
 	[revealMyHandToMyselfButton setNeedsDisplay];		

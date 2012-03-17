@@ -980,7 +980,7 @@
 	[heroExposedCards release];
 	[villainExposedCards release];
 	
-	return (result == NSOrderedDescending || (result == NSOrderedSame) && dealer);
+	return (result == NSOrderedDescending || ((result == NSOrderedSame) && dealer));
 }
 
 - (void) dealNextStreet {
@@ -1494,7 +1494,7 @@
 	}	
 		
 	if (([self villainStackSize] == 0) ||
-		([self heroStackSize] == 0) && ([self heroBetOrRaiseAmount] <= [self villainBetOrRaiseAmount])) {
+		(([self heroStackSize] == 0) && ([self heroBetOrRaiseAmount] <= [self villainBetOrRaiseAmount]))) {
 		// this is necessary to set isHandStarted correctly because this is a special "no move all-in" hand.
 		[self addMove];
 		[self handleAllIn];
@@ -1620,7 +1620,7 @@
 	}	
 	
 	if (([self heroStackSize] == 0) ||
-		([self villainStackSize] == 0) && ([self villainBetOrRaiseAmount] <= [self heroBetOrRaiseAmount])) {
+		(([self villainStackSize] == 0) && ([self villainBetOrRaiseAmount] <= [self heroBetOrRaiseAmount]))) {
 		// this is necessary to set isHandStarted correctly because this is a special "no move all-in" hand.
 		[self addMove];
 		[self handleAllIn];
