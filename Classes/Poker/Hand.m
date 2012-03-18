@@ -1879,8 +1879,12 @@ MadeHand *histogramHand = nil;
 				card2.rank == kRankFour &&
 				card1.rank == kRankThree &&
 				card0.rank == kRankTwo) {
+                // card4 the last object needs to be retained because it will be 
+                // released when [cards5 removeLastObject]; is executed.
+                [card4 retain];
 				[cards5 removeLastObject];
 				[cards5 insertObject:card4 atIndex:0];
+                [card4 release];
 			}
 			
 			if ([self isStraightFlush:cards5]) {
@@ -2041,8 +2045,12 @@ MadeHand *histogramHand = nil;
 				card2.rank == kRankFour &&
 				card1.rank == kRankThree &&
 				card0.rank == kRankTwo) {
+				// card4 the last object needs to be retained because it will be 
+                // released when [cards5 removeLastObject]; is executed.
+                [card4 retain];
 				[cards5 removeLastObject];
 				[cards5 insertObject:card4 atIndex:0];
+                [card4 release];
 			}
 			
 			if ([self isStraightFlush:cards5]) {
@@ -2184,8 +2192,12 @@ MadeHand *histogramHand = nil;
 		card2.rank == kRankFour &&
 		card1.rank == kRankThree &&
 		card0.rank == kRankTwo) {
-		[cards5 removeLastObject];
-		[cards5 insertObject:card4 atIndex:0];
+		// card4 the last object needs to be retained because it will be 
+        // released when [cards5 removeLastObject]; is executed.
+        [card4 retain];
+        [cards5 removeLastObject];
+        [cards5 insertObject:card4 atIndex:0];
+        [card4 release];
 	}
 	
 	if ([self isStraightFlush:cards5]) {
@@ -2272,8 +2284,12 @@ MadeHand *histogramHand = nil;
 				card2.rank == kRankFour &&
 				card1.rank == kRankThree &&
 				card0.rank == kRankTwo) {
+				// card4 the last object needs to be retained because it will be 
+                // released when [cards5 removeLastObject]; is executed.
+                [card4 retain];
 				[cards5 removeLastObject];
 				[cards5 insertObject:card4 atIndex:0];
+                [card4 release];
 			}
 			
 			if ([self isStraightFlush:cards5]) {
@@ -2456,8 +2472,12 @@ MadeHand *histogramHand = nil;
 							card2.rank == kRankFour &&
 							card1.rank == kRankThree &&
 							card0.rank == kRankTwo) {
-							[cards5 removeLastObject];
-							[cards5 insertObject:card4 atIndex:0];
+							// card4 the last object needs to be retained because it will be 
+                            // released when [cards5 removeLastObject]; is executed.
+                            [card4 retain];
+                            [cards5 removeLastObject];
+                            [cards5 insertObject:card4 atIndex:0];
+                            [card4 release];
 						}
 						
 						if ([Hand isStraight:cards5] ||
@@ -2526,8 +2546,12 @@ MadeHand *histogramHand = nil;
 							card2.rank == kRankFour &&
 							card1.rank == kRankThree &&
 							card0.rank == kRankTwo) {
-							[cards5 removeLastObject];
-							[cards5 insertObject:card4 atIndex:0];
+							// card4 the last object needs to be retained because it will be 
+                            // released when [cards5 removeLastObject]; is executed.
+                            [card4 retain];
+                            [cards5 removeLastObject];
+                            [cards5 insertObject:card4 atIndex:0];
+                            [card4 release];
 						}
 						
 						if ([self isStraightFlush:cards5]) {
@@ -2691,8 +2715,12 @@ MadeHand *histogramHand = nil;
 							card2.rank == kRankFour &&
 							card1.rank == kRankThree &&
 							card0.rank == kRankTwo) {
-							[cards5 removeLastObject];
-							[cards5 insertObject:card4 atIndex:0];
+							// card4 the last object needs to be retained because it will be 
+                            // released when [cards5 removeLastObject]; is executed.
+                            [card4 retain];
+                            [cards5 removeLastObject];
+                            [cards5 insertObject:card4 atIndex:0];
+                            [card4 release];
 						}
 						
 						if ([self isStraightFlush:cards5]) {
@@ -3174,8 +3202,12 @@ MadeHand *histogramHand = nil;
 		card2.rank == kRankFour &&
 		card1.rank == kRankThree &&
 		card0.rank == kRankTwo) {
-		[cards5 removeLastObject];
-		[cards5 insertObject:card4 atIndex:0];
+		// card4 the last object needs to be retained because it will be 
+        // released when [cards5 removeLastObject]; is executed.
+        [card4 retain];
+        [cards5 removeLastObject];
+        [cards5 insertObject:card4 atIndex:0];
+        [card4 release];
 	}
 	
 	if ([self isStraightFlush:cards5]) {
