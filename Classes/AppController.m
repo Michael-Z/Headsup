@@ -3691,7 +3691,10 @@
 	picker.delegate = nil;
 	//[picker autorelease];
 	
-	[self sendHeroDeviceId];
+    // the following line has been moved to didChangeState:
+    // when sendHeroDeviceId is called here, sometimes the match doesn't start, probably
+    // because the receiver wasn't ready.
+	//[self sendHeroDeviceId];
 } 
 
 // b is of type enum kMoveType
@@ -4147,7 +4150,9 @@
 #pragma mark GKSessionDelegate Methods
 
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state { 
-	if(state == GKPeerStateDisconnected) {
+    if (state == GKPeerStateConnected) {
+        [self sendHeroDeviceId];
+	} else if (state == GKPeerStateDisconnected) {
 		// We've been disconnected from the other peer.
 		
 		if (viewType == kViewRestoreMode)
