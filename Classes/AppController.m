@@ -315,6 +315,15 @@
 		[defaults setBool:YES forKey:KEY_HERO_HOLE_CARDS_FACE_UP];
 }
 
+- (void)greystripeAdReadyForSlotNamed:(NSString *)a_name 
+{ 
+    NSLog(@"Ad for slot named %@ is ready.", a_name);
+    
+    if ([a_name isEqual:@"fullscreenSlot"]) 
+    {
+    }
+}
+
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
 	// start Applytics
@@ -347,6 +356,18 @@
 	if (aGameKitClass != nil) {*/
 	
 	if (BUILD == HU_HOLDEM_FREE) {
+        GSAdSlotDescription * slot2 = [GSAdSlotDescription descriptionWithSize:kGSAdSizeIPhoneFullScreen name:@"fullscreenSlot"];
+        
+        // Greystripe 
+        NSString *applicationID = @"95d0808a-28ec-4fe6-ba6d-e138914cd2f4";
+        
+        //Start the AdEngine with our three slots
+        [GSAdEngine startupWithAppID:applicationID adSlotDescriptions:[NSArray arrayWithObjects:slot2, nil]];
+        
+        [GSAdEngine setFullScreenDelegate:self forSlotNamed:@"fullscreenSlot"];
+        
+        [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+        
         /*
 		interstitialViewController = [[InterstitialSampleViewController alloc] init];
 		interstitialViewController.appController = self;
@@ -969,6 +990,8 @@
 	[self reportAppOpenToMobclix];
 	
 	if (BUILD == HU_HOLDEM_FREE) {
+        [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+        
         /*
 		// only request a video interstitial if one is not being played.
 		if (interstitialViewController.interstitialAd == nil) {
