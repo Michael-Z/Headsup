@@ -72,7 +72,7 @@ UILabel *connectingToGameCenterLabel;
 	}*/
 	
 	
-	 if (BUILD == HU_HOLDEM_FREE) {
+	 if ([AppController isFreeVersion]) {
 		 //ARRollerView* rollerView = [ARRollerView requestRollerViewWithDelegate:self.bvc];
 		 //[self addSubview:rollerView];
 		 adView = [AdWhirlView requestAdWhirlViewWithDelegate:self.bvc]; 
@@ -105,7 +105,7 @@ UILabel *connectingToGameCenterLabel;
 		
 		[self addRollerView];		
 				
-		CGFloat runningY = BUILD == HU_HOLDEM_FREE ? 52 : kOffset;
+		CGFloat runningY = [AppController isFreeVersion] ? 52 : kOffset;
 		CGFloat width = self.bounds.size.width - 2 * kOffset;
 		
 		// commented out for Headsup 3G
@@ -244,7 +244,7 @@ UILabel *connectingToGameCenterLabel;
 		
 		runningY += activityIndicatorView.bounds.size.height + 8;
 		
-		if (BUILD == HU_HOLDEM_FREE) {
+		if ([AppController isFreeVersion]) {
 			// paid version
 			UIButton *infoBuy = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
 			infoBuy.frame = CGRectMake(5, runningY, 100, 30);
@@ -518,10 +518,10 @@ UILabel *connectingToGameCenterLabel;
 
 - (void) buyButtonPressed {
 	// old code that simply leads user to the iTunes page of the paid version.
-	NSString *iTunesLink = @"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=311899644&mt=8";
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+	//NSString *iTunesLink = @"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=311899644&mt=8";
+	//[[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
 	
-	//[(AppController*)[[UIApplication sharedApplication] delegate] buyButtonPressed];
+	[(AppController*)[[UIApplication sharedApplication] delegate] buyButtonPressed];
 }
 
 - (void) helpButtonPressed {
@@ -782,7 +782,7 @@ UILabel *connectingToGameCenterLabel;
 - (void)willMoveToWindow:(UIWindow *)newWindow {
 	[super willMoveToWindow:newWindow];
 	
-	if (BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE) {
+	if ([AppController isFreeVersion]) {
 		if (newWindow == nil) {
 			// will disappear
 			[adView ignoreAutoRefreshTimer];

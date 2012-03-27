@@ -265,5 +265,6 @@ GreystripeDelegate>
 - (void) enableProUpgrade;
 
 + (BOOL) isProUpgradePurchased;
++ (BOOL) isFreeVersion;
 
 @end

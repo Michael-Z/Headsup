@@ -355,7 +355,7 @@
 	/*Class aGameKitClass = (NSClassFromString(@"GKPeerPickerController"));
 	if (aGameKitClass != nil) {*/
 	
-	if (BUILD == HU_HOLDEM_FREE) {
+	if ([AppController isFreeVersion]) {
         GSAdSlotDescription * slot2 = [GSAdSlotDescription descriptionWithSize:kGSAdSizeIPhoneFullScreen name:@"fullscreenSlot"];
         
         // Greystripe 
@@ -989,7 +989,7 @@
 	
 	[self reportAppOpenToMobclix];
 	
-	if (BUILD == HU_HOLDEM_FREE) {
+	if ([AppController isFreeVersion]) {
         [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
         
         /*
@@ -1685,7 +1685,7 @@
 	if (blackjackGameModeViewController == nil) {
 		blackjackGameModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"BlackjackGameModeAdView" : @"BlackjackGameModeView" 
+		 [AppController isFreeVersion] ? @"BlackjackGameModeAdView" : @"BlackjackGameModeView" 
 										   bundle:[NSBundle mainBundle]];
 		
 		BlackjackGameModeView* blackjackGameModeView = (BlackjackGameModeView*)[blackjackGameModeViewController view];
@@ -1729,7 +1729,7 @@
 	if (blackjackHeadsupModeViewController == nil) {
 		blackjackHeadsupModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"BlackjackHeadsupModeAdView" : @"BlackjackHeadsupModeView" 
+		 [AppController isFreeVersion] ? @"BlackjackHeadsupModeAdView" : @"BlackjackHeadsupModeView" 
 										   bundle:[NSBundle mainBundle]];
 		
 		BlackjackHeadsupModeView* blackjackHeadsupModeView = (BlackjackHeadsupModeView*)[blackjackHeadsupModeViewController view];
@@ -1766,7 +1766,7 @@
 	if (helpViewController == nil) {
 		helpViewController =
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"HelpHoldemAdView" : @"HelpHoldemView" 
+		 [AppController isFreeVersion] ? @"HelpHoldemAdView" : @"HelpHoldemView" 
 								bundle:[NSBundle mainBundle]];
 		
 		HelpHoldemView* helpHoldemView = (HelpHoldemView*)[helpViewController view];
@@ -1780,7 +1780,7 @@
 	if (prefsViewController == nil) {
 		prefsViewController =
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"PrefsAdView" : @"PrefsView" 
+		 [AppController isFreeVersion] ? @"PrefsAdView" : @"PrefsView" 
 								bundle:[NSBundle mainBundle]];
 		
 		PrefsView* prefsView = (PrefsView*)[prefsViewController view];
@@ -1805,7 +1805,7 @@
 	if (holdemToolModeViewController == nil) {
 		holdemToolModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"HeadsupAdView" : @"HeadsupView" 
+		 [AppController isFreeVersion] ? @"HeadsupAdView" : @"HeadsupView" 
 								bundle:[NSBundle mainBundle]];
 		
 		HeadsupView* headsupView = (HeadsupView*)[holdemToolModeViewController view];
@@ -1919,7 +1919,7 @@
 	if (holdemTrainingModeViewController == nil) {
 		holdemTrainingModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"TrainingModeAdView" : @"TrainingModeView" 
+		 [AppController isFreeVersion] ? @"TrainingModeAdView" : @"TrainingModeView" 
 										   bundle:[NSBundle mainBundle]];
 		
 		TrainingModeView* trainingModeView = (TrainingModeView*)[holdemTrainingModeViewController view];
@@ -2002,7 +2002,7 @@
 	if (holdemGameModeViewController == nil) {
 		holdemGameModeViewController =
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? 
+		 [AppController isFreeVersion] ? 
 		 @"GameModeAdView" : @"GameModeView"
 										   bundle:[NSBundle mainBundle]];
 		
@@ -2066,7 +2066,7 @@
 	if (omahaGameModeViewController == nil) {
 		omahaGameModeViewController =
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? 
+		 [AppController isFreeVersion] ? 
 		 @"OmahaGameModeAdView" : @"OmahaGameModeView"
 										   bundle:[NSBundle mainBundle]];
 		
@@ -2115,7 +2115,7 @@
 	if (holdemGameModeViewController == nil) {
 		holdemGameModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"GameModeAdView" : @"GameModeView" 
+		 [AppController isFreeVersion] ? @"GameModeAdView" : @"GameModeView" 
 								bundle:[NSBundle mainBundle]];
 		
 		GameModeView* gameModeView = (GameModeView*)[holdemGameModeViewController view];
@@ -2191,7 +2191,7 @@
 	if (omahaToolModeViewController == nil) {
 		omahaToolModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"OmahaToolModeAdView" : @"OmahaToolModeView"
+		 [AppController isFreeVersion] ? @"OmahaToolModeAdView" : @"OmahaToolModeView"
 										   bundle:[NSBundle mainBundle]];
 		
 		OmahaToolModeView* omahaToolModeView = (OmahaToolModeView*)[omahaToolModeViewController view];
@@ -2305,7 +2305,7 @@
 	if (omahaTrainingModeViewController == nil) {
 		omahaTrainingModeViewController = 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"OmahaTrainingModeAdView" : @"OmahaTrainingModeView" 
+		 [AppController isFreeVersion] ? @"OmahaTrainingModeAdView" : @"OmahaTrainingModeView" 
 										   bundle:[NSBundle mainBundle]];
 		
 		OmahaTrainingModeView* omahaTrainingModeView = (OmahaTrainingModeView*)[omahaTrainingModeViewController view];
@@ -2355,7 +2355,7 @@
 	if (omahaGameModeViewController == nil) {
 		omahaGameModeViewController= 
 		[[MyViewController alloc] initWithNibName:
-		 BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE ? @"OmahaGameModeAdView" : @"OmahaGameModeView" 
+		 [AppController isFreeVersion] ? @"OmahaGameModeAdView" : @"OmahaGameModeView" 
 										   bundle:[NSBundle mainBundle]];
 		
 		OmahaGameModeView* omahaGameModeView = (OmahaGameModeView*)[omahaGameModeViewController view];
@@ -2496,15 +2496,26 @@
 }
 
 - (void) enableProUpgrade {
-	//[mobclixAdView setHidden:YES];
-		
-	//[buyButton setHidden:YES];
+	// remove ad view from all views
+	UIView *adViewInGameView = [_picker viewWithTag:AD_VIEW_TAG];
+	[adViewInGameView removeFromSuperview];
+	
+	UIView *adViewInPrefsView = [prefsViewController.view viewWithTag:AD_VIEW_TAG];
+	[adViewInPrefsView removeFromSuperview];
+	
+	// hide the buy button
+    UIView *buyButton = [_picker viewWithTag:BUY_BUTTON_TAG];
+	[buyButton removeFromSuperview];
 }	
 
 + (BOOL) isProUpgradePurchased {
 	BOOL isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kHeadsupProVersionPurchasedKey];
 	
 	return isPurchased;
+}
+
++ (BOOL)isFreeVersion {
+	return ![AppController isProUpgradePurchased] && (BUILD == HU_HOLDEM_FREE);
 }
 
 

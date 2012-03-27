@@ -9,6 +9,7 @@
 #import "MyViewController.h"
 
 #import "PrefsView.h"
+#import "AppController.h"
 
 
 @implementation MyViewController
@@ -71,10 +72,11 @@
 	
 	[super viewDidLoad];
 	
-	if (BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE) {
+	if ([AppController isFreeVersion]) {
 		//ARRollerView* rollerView = [ARRollerView requestRollerViewWithDelegate:self];
 		//[self.view addSubview:rollerView];
 		adView = [AdWhirlView requestAdWhirlViewWithDelegate:self];
+        adView.tag = AD_VIEW_TAG;
 		[self.view addSubview:adView];
 		
 		/*
@@ -91,7 +93,7 @@
 	
 	[super viewDidAppear:animated];
 	
-	if (BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE) {
+	if ([AppController isFreeVersion]) {
 		[adView doNotIgnoreAutoRefreshTimer];
 	}
 }
@@ -103,7 +105,7 @@
 	
 	[super viewWillDisappear:animated];
 	
-	if (BUILD == HU_FREE || BUILD == HU_HOLDEM_FREE) {
+	if ([AppController isFreeVersion]) {
 		[adView ignoreAutoRefreshTimer];
 	}
 }

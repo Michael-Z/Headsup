@@ -35,6 +35,9 @@
 
 #define BUILD HU_HOLDEM_FREE
 
+#define BUY_BUTTON_TAG 887
+#define AD_VIEW_TAG 888
+
 
 #if BUILD == HU_HOLDEM
 //Leaderboard Category IDs
