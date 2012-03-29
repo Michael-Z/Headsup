@@ -266,5 +266,6 @@ GreystripeDelegate>
 
 + (BOOL) isProUpgradePurchased;
 + (BOOL) isFreeVersion;
++ (NSString*) getDeviceId;
 
 @end

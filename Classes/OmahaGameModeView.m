@@ -2494,7 +2494,7 @@
 					isHeroPicked = NO;
 					data = villainApplicationData;
 				} else { // if (heroMoveCount == villainMoveCount)
-					NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];
+					NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];
 					NSComparisonResult result = [heroDeviceId compare:villainDeviceId];
 					
 					isHeroPicked = (result == NSOrderedDescending);

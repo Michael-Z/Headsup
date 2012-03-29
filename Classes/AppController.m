@@ -1585,7 +1585,7 @@
 		[self sendHeroOmahaApplicationData];
 	
 	// send device id to the other phone
-	NSString *deviceId = [[UIDevice currentDevice] uniqueIdentifier];
+	NSString *deviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];
 	NSInteger deviceIdByteLength = [deviceId lengthOfBytesUsingEncoding:NSASCIIStringEncoding];
 	const NSInteger messageLength = 2 + deviceIdByteLength + 1;
 	uint8_t *message = malloc(messageLength);
@@ -1816,7 +1816,7 @@
 	[self.viewController pushViewController:holdemToolModeViewController animated:YES];	
 	
 	HeadsupView* headsupView = (HeadsupView*)[holdemToolModeViewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];	
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];	
 	headsupView.dealer = !([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending);
 	[headsupView willDisplayAtHand:handCount];	
 }
@@ -2126,7 +2126,7 @@
 	[self.viewController pushViewController:holdemGameModeViewController animated:YES];
 		
 	GameModeView* gameModeView = (GameModeView*)[holdemGameModeViewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];	
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];	
 	gameModeView.dealer = 
 	gameMode == kDualPhoneMode ?
 	([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending) :
@@ -2202,7 +2202,7 @@
 	[self.viewController pushViewController:omahaToolModeViewController animated:YES];	
 	
 	OmahaToolModeView* omahaToolModeView = (OmahaToolModeView*)[omahaToolModeViewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];	
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];	
 	omahaToolModeView.dealer = !([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending);
 	[omahaToolModeView willDisplayAtHand:handCount];	
 }
@@ -2366,7 +2366,7 @@
 	[self.viewController pushViewController:omahaGameModeViewController animated:YES];
 		
 	OmahaGameModeView* gameModeView = (OmahaGameModeView*)[omahaGameModeViewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];		
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];		
 	gameModeView.dealer = 
 	gameMode == kDualPhoneMode ?
 	([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending) :
@@ -2518,6 +2518,28 @@
 	return ![AppController isProUpgradePurchased] && (BUILD == HU_HOLDEM_FREE);
 }
 
++ (NSString *)uuid
+{
+    CFUUIDRef uuidRef = CFUUIDCreate(NULL);
+    CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
+    CFRelease(uuidRef);
+    NSString *uuid = [NSString stringWithString:(NSString *)
+                      uuidStringRef];
+    CFRelease(uuidStringRef);
+    return uuid;
+}
+
++ (NSString*)getDeviceId {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if ([defaults objectForKey:KEY_DEVICE_ID] == nil) {
+		[defaults setObject:[AppController uuid] forKey:KEY_DEVICE_ID];
+        [defaults synchronize];
+	}
+    
+    NSLog(@"device id: %@", [defaults stringForKey:KEY_DEVICE_ID]);
+    
+    return [defaults stringForKey:KEY_DEVICE_ID];
+}
 
 // If we display an error or an alert that the remote disconnected, handle dismissal and return to setup
 - (void) alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

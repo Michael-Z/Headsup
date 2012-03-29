@@ -2848,7 +2848,7 @@
 					if (gameMode == kGameCenterMode) {
 						result = [appController.localPlayerId compare:appController.remotePlayerId];
 					} else {
-						NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];
+						NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];
 						result = [heroDeviceId compare:villainDeviceId];
 					}
 					

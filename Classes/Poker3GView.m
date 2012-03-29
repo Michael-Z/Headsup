@@ -190,7 +190,7 @@
 
 	
 	HeadsupView* headsupView = (HeadsupView*)[viewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];	
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];	
 	headsupView.dealer = !([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending);
 	
 	[headsupView willDisplayAtHand:handCount];	
@@ -225,7 +225,7 @@
 	[(AppController*)[[UIApplication sharedApplication] delegate] flipView:controllersView];
 	
 	GameModeView* gameModeView = (GameModeView*)[viewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];
 
 	gameModeView.dealer = ([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending);
 	
@@ -320,7 +320,7 @@
 	
 	
 	OmahaToolModeView* headsupView = (OmahaToolModeView*)[viewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];	
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];	
 	headsupView.dealer = !([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending);
 	
 	[headsupView willDisplayAtHand:handCount];	
@@ -355,7 +355,7 @@
 	[(AppController*)[[UIApplication sharedApplication] delegate] flipView:controllersView];
 	
 	OmahaGameModeView* gameModeView = (OmahaGameModeView*)[viewController view];
-	NSString *heroDeviceId = [[UIDevice currentDevice] uniqueIdentifier];
+	NSString *heroDeviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];
 	
 	gameModeView.dealer = ([heroDeviceId compare:myVillainDeviceId] == NSOrderedAscending);
 	
@@ -446,7 +446,7 @@
 		[self sendHeroOmahaApplicationData];
 	
 	// send device id to the other phone
-	NSString *deviceId = [[UIDevice currentDevice] uniqueIdentifier];
+	NSString *deviceId = [AppController getDeviceId]; //[[UIDevice currentDevice] uniqueIdentifier];
 	NSInteger deviceIdByteLength = [deviceId lengthOfBytesUsingEncoding:NSASCIIStringEncoding];
 	const NSInteger messageLength = 2 + deviceIdByteLength + 1;
 	uint8_t *message = malloc(messageLength);

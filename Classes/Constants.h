@@ -17,6 +17,8 @@
 #define KEY_HERO_NAME @"hero_name"
 #define KEY_VILLAIN_NAME @"villain_name"
 
+#define KEY_DEVICE_ID @"device_id"
+
 #define DEFAULT_STACK 150
 #define DEFAULT_SMALL_BLIND 1
 #define DEFAULT_BIG_BLIND 2
