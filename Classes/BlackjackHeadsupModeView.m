@@ -2869,6 +2869,9 @@
 	
 	[dealButtonForKeyboard setHidden:YES];
 	[heroStackLabelForKeyboard setHidden:YES];
+    
+    [self stopWaitIndicator];
+    [villainWaitIndicator setHidden:YES];
 }
 
 // restore cards for either hero or villain

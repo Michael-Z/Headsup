@@ -1940,6 +1940,8 @@
 	
 	[dealButtonForKeyboard setHidden:YES];
 	[heroStackLabelForKeyboard setHidden:YES];
+    
+    [self stopWaitIndicator];
 }
 
 // pre-condition: heroApplicationData[0] == 1 

@@ -1839,6 +1839,8 @@
 	[prevButton setHidden:YES];
 	[nextButton setHidden:YES];	
 	[handButton setHidden:YES];		
+    
+    [self stopWaitIndicator];
 }
 
 - (void) dealFirstCardDealer {
