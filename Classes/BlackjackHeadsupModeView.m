@@ -736,6 +736,10 @@
 - (void) alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {	
 	if (buttonIndex == 0) {
+        if ([AppController isFreeVersion]) {
+            [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+        }
+        
 		[self startNewTournament];
 	} else {
 		// do nothing

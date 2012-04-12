@@ -1387,6 +1387,10 @@
 		[navController popViewControllerAnimated:YES];
 	} else {		
 		if (buttonIndex == 0) {
+            if ([AppController isFreeVersion]) {
+                [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+            }
+            
 			if (gameMode == kSinglePlayerMode) {
 				[villain killAllActiveTimers];
 				[villain release];

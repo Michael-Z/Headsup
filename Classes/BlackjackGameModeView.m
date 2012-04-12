@@ -552,6 +552,10 @@
 - (void) alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex == 0) {
+        if ([AppController isFreeVersion]) {
+            [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+        }
+        
 		[self killAllActiveTimers];
 		[self clearApplicationData];
 		[self willDisplayAtHand:0 heroStack:1000];
