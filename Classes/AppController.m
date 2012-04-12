@@ -46,6 +46,8 @@
 #import "Hand.h"
 //#import "AES128.h"
 
+#import "Appirater.h"
+
 //CONSTANTS:
 
 
@@ -441,6 +443,8 @@
 	// if necessary in the background.  We recommend using the AdMob SDK's 
 	// timeout mechanism.  If you choose to use an additional timeout mechanism, 
 	// we have seen negative performance with timeout values below 5 seconds.	
+    
+    [Appirater appLaunched:YES];
 }
 
 - (NSString *)holdemHistoryFileName:(NSString *)villainDeviceId gameMode:(enum GameMode)gameMode {
@@ -969,6 +973,8 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    [Appirater appEnteredForeground:YES];
+    
 	if (viewController.topViewController == holdemGameModeViewController) {
 		GameModeView* gameModeView = (GameModeView*)[holdemGameModeViewController view];
 
