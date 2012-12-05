@@ -113,7 +113,7 @@ MadeHand *histogramHand = nil;
 				isBigBetStreet = YES;
 				break;
 			default:
-				NSLog(@"wrong street: %@", street);
+				NSLog(@"wrong street: %u", street);
 				break;
 		}		
 	} else if (type == kHand5CardSingleDraw || type == kHand5CardTrippleDraw) {
@@ -128,7 +128,7 @@ MadeHand *histogramHand = nil;
 				street = kStreetRoundFour;
 				break;
 			default:
-				NSLog(@"wrong street: %@", street);
+				NSLog(@"wrong street: %u", street);
 				break;
 		}		
 	}
@@ -2951,8 +2951,8 @@ MadeHand *histogramHand = nil;
 	[hand1 sortUsingSelector:@selector(compare:)];
 	
 	// determine hand type for the two hands
-	Card *card00, *card01, *card02, *card03;
-	Card *card10, *card11, *card12, *card13;
+	Card *card00 = nil, *card01 = nil, *card02 = nil, *card03 = nil;
+	Card *card10 = nil, *card11 = nil, *card12 = nil, *card13 = nil;
 	
 	card00 = [hand0 objectAtIndex:0];
 	card10 = [hand1 objectAtIndex:0];
@@ -3230,7 +3230,7 @@ MadeHand *histogramHand = nil;
 		madeHand.handType = kHandHighCard;
 	}
 	
-	madeHand.cards = [[NSMutableArray arrayWithArray:cards5] retain];
+	madeHand.cards = [NSMutableArray arrayWithArray:cards5];
 	
 	[cards5 release];
 }

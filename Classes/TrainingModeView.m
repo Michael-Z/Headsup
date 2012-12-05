@@ -1078,7 +1078,7 @@
 			[self displayRiverInfo];
 			break;
 		default:
-			NSLog(@"wrong street: %@", hand.street);
+			NSLog(@"wrong street: %u", hand.street);
 			break;
 	}	
 	
@@ -1669,7 +1669,7 @@
 		 :bestHand];
 	
 	} else if (hand.street == kStreetFlop) {
-		bestHand.cards = [[NSMutableArray alloc] init];
+		bestHand.cards = [[[NSMutableArray alloc] init] autorelease];
 		[bestHand.cards addObject:isHeroHand ? heroCard0View.card : villainCard0View.card];
 		[bestHand.cards addObject:isHeroHand ? heroCard1View.card : villainCard1View.card];
 		[bestHand.cards addObject:communityCard0View.card];

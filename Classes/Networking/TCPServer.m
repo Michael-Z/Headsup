@@ -144,7 +144,9 @@ static void TCPServerAcceptCallBack(CFSocketRef socket, CFSocketCallBackType typ
 		return NO;
 	
 
-	self.netService = [[NSNetService alloc] initWithDomain:domain type:protocol name:name port:self.port];
+    NSNetService *service = [[NSNetService alloc] initWithDomain:domain type:protocol name:name port:self.port];
+	self.netService = service;
+    [service release];
 	if(self.netService == nil)
 		return NO;
 	
@@ -191,7 +193,7 @@ static void TCPServerAcceptCallBack(CFSocketRef socket, CFSocketCallBackType typ
 
 - (NSString*) description
 {
-	return [NSString stringWithFormat:@"<%@ = 0x%08X | port %d | netService = %@>", [self class], (long)self, self.port, self.netService];
+	return [NSString stringWithFormat:@"<%@ = 0x%08lX | port %d | netService = %@>", [self class], (long)self, self.port, self.netService];
 }
 
 + (NSString*) bonjourTypeFromIdentifier:(NSString*)identifier {

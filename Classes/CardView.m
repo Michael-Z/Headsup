@@ -89,7 +89,7 @@
 			cardColor = [UIColor cyanColor];
 			break;
 		default:
-			NSLog(@"wrong suit. no color picked: %@", aSuit);
+			NSLog(@"wrong suit. no color picked: %u", aSuit);
 			break;
 	}
 	

@@ -873,7 +873,7 @@
 			break;
 			
 		default:
-			NSLog(@"wrong street: %@", hand.street);
+			NSLog(@"wrong street: %u", hand.street);
 			break;
 	}
 	
