@@ -1432,6 +1432,8 @@
 		self.viewController = controller;
         [controller release];
 		self.viewController.navigationBarHidden = YES;
+        
+        _window.rootViewController = self.viewController;
 		
 		[_window addSubview:self.viewController.view];
 	}
