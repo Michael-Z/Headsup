@@ -5,4 +5,11 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
+
+#define GOOGLE_ADMOB_IPHONE_BANNER_MEDIATION_ID @"551e6ef9f6894331"
+
+#define GS_IPHONE_INTERSTITAL_GUID @"95d0808a-28ec-4fe6-ba6d-e138914cd2f4"
+
+#define IPHONE_INTERSTITIAL_REQUEST_INTERVAL 30
+
 #endif

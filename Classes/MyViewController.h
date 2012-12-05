@@ -9,16 +9,27 @@
 #import <UIKit/UIKit.h>
 //#import "ARRollerView.h"
 //#import "ARRollerProtocol.h"
-#import "AdWhirlDelegateProtocol.h"
-#import "AdWhirlView.h"
+//#import "AdWhirlDelegateProtocol.h"
+//#import "AdWhirlView.h"
 
 //#import "MobclixAds.h"
 
-@interface MyViewController : UIViewController <AdWhirlDelegate> {//<ARRollerDelegate> { //, MobclixAdViewDelegate> {
+#import "GSAdDelegate.h"
+#import "GSFullscreenAd.h"
+
+
+@interface MyViewController : UIViewController <GSAdDelegate> {
+    //<AdWhirlDelegate> {//<ARRollerDelegate> { //, MobclixAdViewDelegate> {
 @private
 	//MobclixAdView* adView;
-	AdWhirlView* adView;
+	//AdWhirlView* adView;
 }
 
 //@property(nonatomic,retain) MobclixAdView* adView;
+
+@property (retain, nonatomic) GSFullscreenAd* myFullscreenAd;
+
+- (void) displayFullscreenAd;
+- (void) hideBannerAd;
+
 @end

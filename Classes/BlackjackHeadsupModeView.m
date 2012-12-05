@@ -737,7 +737,9 @@
 {	
 	if (buttonIndex == 0) {
         if ([AppController isFreeVersion]) {
-            [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+            //[GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+            
+            [(MyViewController*)appController.viewController.topViewController displayFullscreenAd];
         }
         
 		[self startNewTournament];

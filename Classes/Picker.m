@@ -75,8 +75,9 @@ UILabel *connectingToGameCenterLabel;
 	 if ([AppController isFreeVersion]) {
 		 //ARRollerView* rollerView = [ARRollerView requestRollerViewWithDelegate:self.bvc];
 		 //[self addSubview:rollerView];
-		 adView = [AdWhirlView requestAdWhirlViewWithDelegate:self.bvc]; 
-		 [self addSubview:adView];
+		 
+         /*adView = [AdWhirlView requestAdWhirlViewWithDelegate:self.bvc];
+		 [self addSubview:adView];*/
 	 }
 }	
 
@@ -91,7 +92,9 @@ UILabel *connectingToGameCenterLabel;
 
 - (id)initWithFrame:(CGRect)frame type:(NSString*)type {
 	if ((self = [super initWithFrame:frame])) {
-		self.bvc = [[BrowserViewController alloc] initWithTitle:nil showDisclosureIndicators:NO showCancelButton:NO];
+        BrowserViewController *viewController = [[BrowserViewController alloc] initWithTitle:nil showDisclosureIndicators:NO showCancelButton:NO];
+		self.bvc = viewController;
+        [viewController release];
 		[self.bvc searchForServicesOfType:type inDomain:@"local"];
 		
 		self.opaque = YES;
@@ -246,7 +249,7 @@ UILabel *connectingToGameCenterLabel;
 		
 		if ([AppController isFreeVersion]) {
 			// paid version
-			UIButton *infoBuy = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+			UIButton *infoBuy = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			infoBuy.frame = CGRectMake(5, runningY, 100, 30);
 			[infoBuy setImage:[UIImage imageNamed:@"wifi_buy.png"] forState:UIControlStateNormal];
 			[infoBuy setTitle:@"Share" forState:UIControlStateNormal];
@@ -258,7 +261,7 @@ UILabel *connectingToGameCenterLabel;
 		}
 		
 		// headsup blackjack
-		UIButton *infoHeadsupBlackjack = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoHeadsupBlackjack = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoHeadsupBlackjack.frame = CGRectMake(110, runningY, 100, 30);
 		[infoHeadsupBlackjack setImage:[UIImage imageNamed:@"wifi_hublackjack.png"] forState:UIControlStateNormal];
 		[infoHeadsupBlackjack setTitle:@"HU Blackjack" forState:UIControlStateNormal];
@@ -291,7 +294,7 @@ UILabel *connectingToGameCenterLabel;
 		if (aGameKitClass != nil && 
 			![nameString isEqualToString:@"iPhone1,1"] &&
 			![nameString isEqualToString:@"iPod1,1"]) {
-			UIButton *infoBluetooth = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+			UIButton *infoBluetooth = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			infoBluetooth.frame = CGRectMake(215, runningY, 100, 30);
 			[infoBluetooth setImage:[UIImage imageNamed:@"wifi_bluetooth.png"] forState:UIControlStateNormal];
 			[infoBluetooth setTitle:@"Bluetooth" forState:UIControlStateNormal];
@@ -320,7 +323,7 @@ UILabel *connectingToGameCenterLabel;
 		runningY += infoHeadsupBlackjack.bounds.size.height + 8;
 				
 		// single player
-		UIButton *infoSinglePlayer = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoSinglePlayer = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoSinglePlayer.frame = CGRectMake(5, runningY, 100, 30);
 		[infoSinglePlayer setImage:[UIImage imageNamed:@"wifi_singleplayer.png"] forState:UIControlStateNormal];
 		[infoSinglePlayer setTitle:@"Single Player" forState:UIControlStateNormal];
@@ -328,7 +331,7 @@ UILabel *connectingToGameCenterLabel;
 		//infoSinglePlayer.backgroundColor = [UIColor blackColor];
 		
 		// blackjack
-		UIButton *infoBlackjack = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoBlackjack = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoBlackjack.frame = CGRectMake(110, runningY, 100, 30);
 		[infoBlackjack setImage:[UIImage imageNamed:@"wifi_blackjack.png"] forState:UIControlStateNormal];
 		[infoBlackjack setTitle:@"Blackjack" forState:UIControlStateNormal];
@@ -337,7 +340,7 @@ UILabel *connectingToGameCenterLabel;
 		[infoBlackjack setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 		
 		// single phone
-		UIButton *infoSinglePhone = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoSinglePhone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoSinglePhone.frame = CGRectMake(215, runningY, 100, 30);
 		[infoSinglePhone setImage:[UIImage imageNamed:@"wifi_singlephone.png"] forState:UIControlStateNormal];
 		[infoSinglePhone setTitle:@"Single Phone" forState:UIControlStateNormal];
@@ -350,7 +353,7 @@ UILabel *connectingToGameCenterLabel;
 		
 		// button for preferences page
 		runningY += infoSinglePhone.bounds.size.height + 8;
-		UIButton *infoSettings = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoSettings = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoSettings.frame = CGRectMake(5, runningY, 100, 30);
 		[infoSettings setImage:[UIImage imageNamed:@"wifi_settings.png"] forState:UIControlStateNormal];
 		[infoSettings setTitle:@"Settings" forState:UIControlStateNormal];
@@ -358,7 +361,7 @@ UILabel *connectingToGameCenterLabel;
 		//infoSettings.backgroundColor = [UIColor blackColor];
 		
 		// training mode
-		UIButton *infoTraining = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoTraining = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoTraining.frame = CGRectMake(110, runningY, 100, 30);
 		[infoTraining setImage:[UIImage imageNamed:@"wifi_training.png"] forState:UIControlStateNormal];
 		[infoTraining setTitle:@"Training" forState:UIControlStateNormal];
@@ -367,7 +370,7 @@ UILabel *connectingToGameCenterLabel;
 		[infoTraining setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 		
 		// button for help page
-		UIButton *infoHelp = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		UIButton *infoHelp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		infoHelp.frame = CGRectMake(215, runningY, 100, 30);
 		[infoHelp setImage:[UIImage imageNamed:@"wifi_help.png"] forState:UIControlStateNormal];
 		[infoHelp setTitle:@"Help" forState:UIControlStateNormal];
@@ -380,7 +383,7 @@ UILabel *connectingToGameCenterLabel;
 
 		if ([GameCenterManager isGameCenterAvailable]) {
 			runningY += infoSinglePhone.bounds.size.height + 8;
-			authenticateGameCenter = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+			authenticateGameCenter = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			authenticateGameCenter.frame = CGRectMake(110, runningY, 100, 30);
 			[authenticateGameCenter setImage:[UIImage imageNamed:@"wifi_sign_in.png"] forState:UIControlStateNormal];
 			[authenticateGameCenter setTitle:@"Authenticate" forState:UIControlStateNormal];
@@ -390,19 +393,19 @@ UILabel *connectingToGameCenterLabel;
 			[self addSubview:authenticateGameCenter];
 			
 			runningY += infoSinglePhone.bounds.size.height + 8;
-			holdemGameCenter = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+			holdemGameCenter = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			holdemGameCenter.frame = CGRectMake(5, runningY, 100, 30);
 			[holdemGameCenter setImage:[UIImage imageNamed:@"wifi_internet_play.png"] forState:UIControlStateNormal];
 			[holdemGameCenter setTitle:@"Net Holdem" forState:UIControlStateNormal];
 			[holdemGameCenter addTarget:self action:@selector(gameCenterButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 			
-			leaderboards = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+			leaderboards = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			leaderboards.frame = CGRectMake(110, runningY, 100, 30);
 			[leaderboards setImage:[UIImage imageNamed:@"wifi_leaderboards.png"] forState:UIControlStateNormal];
 			[leaderboards setTitle:@"Leaderboards" forState:UIControlStateNormal];
 			[leaderboards addTarget:self action:@selector(leaderboardsButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 			
-			achievements = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+			achievements = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			achievements.frame = CGRectMake(215, runningY, 100, 30);
 			[achievements setImage:[UIImage imageNamed:@"wifi_achievements.png"] forState:UIControlStateNormal];
 			[achievements setTitle:@"Achievements" forState:UIControlStateNormal];
@@ -417,7 +420,7 @@ UILabel *connectingToGameCenterLabel;
 			[self addSubview:achievements];
 		}
 		
-		runningY += infoSettings.bounds.size.height + 30;
+		//runningY += infoSettings.bounds.size.height + 30;
 		
 		label = [[UILabel alloc] initWithFrame:CGRectZero];
 		[label setTextAlignment:UITextAlignmentCenter];
@@ -429,9 +432,9 @@ UILabel *connectingToGameCenterLabel;
 		NSString *versionString;
 		
 		if (BUILD == HU_HOLDEM)
-			versionString = @"Headsup Poker 1.9.3";
+			versionString = @"Headsup Poker 1.9.4";
 		else if (BUILD == HU_HOLDEM_FREE)
-			versionString = @"Headsup Poker 1.9.3";
+			versionString = @"Headsup Poker 1.9.4";
 		else if (BUILD == HU_OMAHA)
 			versionString = @"Headsup Omaha Version 1.0.1";
 		else if (BUILD == HU_OMAHA_FREE)
@@ -456,6 +459,7 @@ UILabel *connectingToGameCenterLabel;
 		[label sizeToFit];
 		label.frame = CGRectMake(kOffset, 425, width, label.frame.size.height);
 		[self addSubview:label];
+        [label release];
 		
 		/*
 		runningY += label.bounds.size.height + 2;
@@ -578,11 +582,14 @@ UILabel *connectingToGameCenterLabel;
 	//[(AppController*)[[UIApplication sharedApplication] delegate] presentGameCenterView];	
 	
 	gameName = kGameHoldem;
-	GKMatchRequest *request = [[[GKMatchRequest alloc] init] autorelease];
+	GKMatchRequest *request = [[GKMatchRequest alloc] init];
 	request.playerGroup = kGameHoldem;
     request.minPlayers = 2;
     request.maxPlayers = 2;
-	[self showMatchmaker:[[GKMatchmakerViewController alloc] initWithMatchRequest:request]];		
+    GKMatchmakerViewController *viewController = [[GKMatchmakerViewController alloc] initWithMatchRequest:request];
+    [request release];
+	[self showMatchmaker:viewController];
+    [viewController release];
 }
 
 - (void) leaderboardsButtonPressed {	
@@ -613,7 +620,9 @@ UILabel *connectingToGameCenterLabel;
 - (void)setupInviteHandler {
     [[GKMatchmaker sharedMatchmaker] setInviteHandler:^(GKInvite *invite, NSArray *tmp) {
 		NSLog(@"invite handler");
-		[self showMatchmaker:[[GKMatchmakerViewController alloc] initWithInvite:invite]];
+        GKMatchmakerViewController *viewController = [[GKMatchmakerViewController alloc] initWithInvite:invite];
+		[self showMatchmaker:viewController];
+        [viewController release];
     }];
 }
 
@@ -747,8 +756,8 @@ UILabel *connectingToGameCenterLabel;
 
 - (void)dealloc {
 	// Cleanup any running resolve and free memory
-	[self.bvc release];
-	[self.gameNameLabel release];
+	[_bvc release];
+	[_gameNameLabel release];
 	
 	[super dealloc];
 }
@@ -783,13 +792,13 @@ UILabel *connectingToGameCenterLabel;
 	[super willMoveToWindow:newWindow];
 	
 	if ([AppController isFreeVersion]) {
-		if (newWindow == nil) {
+		/*if (newWindow == nil) {
 			// will disappear
 			[adView ignoreAutoRefreshTimer];
 		} else {
 			// will appear
 			[adView doNotIgnoreAutoRefreshTimer];
-		}
+		}*/
 	}
 }
 

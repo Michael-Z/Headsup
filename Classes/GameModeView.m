@@ -1528,7 +1528,9 @@
 	} else {
 		if (buttonIndex == 0) {
             if ([AppController isFreeVersion]) {
-                [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+                //[GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+                
+                [(MyViewController*)appController.viewController.topViewController displayFullscreenAd];
             }
             
 			if (gameMode == kSinglePlayerMode) {
@@ -1999,7 +2001,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 	
 	[self abandonedEndMathRequest];
 	
@@ -2043,7 +2045,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 	
 	[self playCheckSound];
 	
@@ -2114,7 +2116,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];	
+	[action release];
 	
 	if ([self heroStackSize] == 0 || [self villainStackSize] == 0) {
 		action.isAllIn = YES;
@@ -2263,7 +2265,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 	
 	if ([self isRaiseAction]) {
 		action.action = kActionRaise;
@@ -2445,7 +2447,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 	
 	[self displayAction:FOLD_ACTION amount:0 actionLabel:villainActionLabel amountLabel:villainAmountLabel];
 	
@@ -2470,7 +2472,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 	
 	[self displayAction:CHECK_ACTION amount:0 actionLabel:villainActionLabel amountLabel:villainAmountLabel];
 	
@@ -2524,7 +2526,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 	
 	if ([self heroStackSize] == 0 || [self villainStackSize] == 0) {
 		action.isAllIn = YES;
@@ -2581,7 +2583,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];	
-	//[action release];
+	[action release];
 
 	// show buttons for hero
 	[self showFoldButton];
@@ -2613,7 +2615,7 @@
 	action.isAllIn = NO;
 	
 	[lastHand.arrActions addObject:action];		
-	//[action release];
+	[action release];
 
 	// show buttons for hero
 	[self showFoldButton];
@@ -3375,7 +3377,7 @@
 		message[i] = (uint8_t)((card.rank << 2) | card.suit);
 	}
 	
-	for (int i=1; i <= 9; i++) {
+	for (int i=1; i <= cardsCount; i++) {
 		applicationData[31+i] = message[i];
 	}
 	

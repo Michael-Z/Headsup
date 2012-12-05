@@ -28,7 +28,7 @@ Version: 1.5
 	BrowserViewController* _bvc;
 			
 	//AdMobView *rollerView;
-	AdWhirlView *adView;
+	//AdWhirlView *adView;
 }
 
 @property (nonatomic, assign) id<BrowserViewControllerDelegate> delegate;

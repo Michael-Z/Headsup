@@ -23,8 +23,8 @@ Version: 1.5
 #import <Foundation/NSNetServices.h>
 //#import "ARRollerView.h"
 //#import "ARRollerProtocol.h"
-#import "AdWhirlDelegateProtocol.h"
-#import "AdWhirlView.h"
+//#import "AdWhirlDelegateProtocol.h"
+//#import "AdWhirlView.h"
 
 @class BrowserViewController;
 
@@ -36,7 +36,7 @@ Version: 1.5
 @end
 
 @interface BrowserViewController : UITableViewController 
-	<AdWhirlDelegate, //ARRollerDelegate, 
+	<//AdWhirlDelegate, //ARRollerDelegate,
 	NSNetServiceDelegate, NSNetServiceBrowserDelegate> {
 
 @private

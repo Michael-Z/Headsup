@@ -1375,7 +1375,7 @@
 			
 			break;
 		default:
-			NSLog(@"wrong street: %@", hand.street);
+			NSLog(@"wrong street: %u", hand.street);
 			break;
 	}	
 }
@@ -1388,7 +1388,9 @@
 	} else {		
 		if (buttonIndex == 0) {
             if ([AppController isFreeVersion]) {
-                [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+                //[GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+                
+                [(MyViewController*)appController.viewController.topViewController displayFullscreenAd];
             }
             
 			if (gameMode == kSinglePlayerMode) {
@@ -3052,7 +3054,7 @@
 		message[i] = (uint8_t)((card.rank << 2) | card.suit);
 	}
 	
-	for (int i=1; i <= 13; i++) {
+	for (int i=1; i <= cardsCount; i++) {
 		applicationData[31+i] = message[i];
 	}
 

@@ -9,7 +9,7 @@
 #import "ApplyfireView.h"
 #import "ApplyfireDelegateProtocol.h"*/
 
-#import "GSAdEngine.h"
+//#import "GSAdEngine.h"
 
 #import "BrowserViewController.h"
 #import "Picker.h"
@@ -54,8 +54,8 @@ SKProductsRequestDelegate,
 GKPeerPickerControllerDelegate, 
 GKSessionDelegate,
 GKMatchDelegate,
-GameCenterManagerDelegate,
-GreystripeDelegate>
+GameCenterManagerDelegate>
+//GreystripeDelegate>
 {
 	//AdMobInterstitialAd *interstitialAd;
 	

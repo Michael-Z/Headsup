@@ -3,7 +3,7 @@
 #import "AppController.h"
 //#import "InterstitialSampleViewController.h"
 //#import "AdMobInterstitialAd.h"
-#import "Mobclix.h"
+//#import "Mobclix.h"
 
 #import "math.h"
 
@@ -358,7 +358,7 @@
 	if (aGameKitClass != nil) {*/
 	
 	if ([AppController isFreeVersion]) {
-        GSAdSlotDescription * slot2 = [GSAdSlotDescription descriptionWithSize:kGSAdSizeIPhoneFullScreen name:@"fullscreenSlot"];
+        /*GSAdSlotDescription * slot2 = [GSAdSlotDescription descriptionWithSize:kGSAdSizeIPhoneFullScreen name:@"fullscreenSlot"];
         
         // Greystripe 
         NSString *applicationID = @"95d0808a-28ec-4fe6-ba6d-e138914cd2f4";
@@ -368,7 +368,7 @@
         
         [GSAdEngine setFullScreenDelegate:self forSlotNamed:@"fullscreenSlot"];
         
-        [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+        [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];*/
         
         /*
 		interstitialViewController = [[InterstitialSampleViewController alloc] init];
@@ -406,7 +406,7 @@
 	[_window makeKeyAndVisible];
 
 	// Headsup Poker
-	[Mobclix startWithApplicationId:@"2FF4BC95-34DB-4514-8928-DD4C0A89DA72"];
+	//[Mobclix startWithApplicationId:@"2FF4BC95-34DB-4514-8928-DD4C0A89DA72"];
 	// Headsup 3G
 	//[Mobclix startWithApplicationId:@"D5B1DBFB-83A3-49C8-8A69-65DD41D13EB5"];
 
@@ -975,6 +975,12 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [Appirater appEnteredForeground:YES];
     
+    if ([AppController isFreeVersion]) {
+        if ([viewController.topViewController respondsToSelector:@selector(displayFullscreenAd)]) {
+            [((MyViewController*)viewController.topViewController) displayFullscreenAd];
+        }
+    }
+    
 	if (viewController.topViewController == holdemGameModeViewController) {
 		GameModeView* gameModeView = (GameModeView*)[holdemGameModeViewController view];
 
@@ -996,7 +1002,7 @@
 	[self reportAppOpenToMobclix];
 	
 	if ([AppController isFreeVersion]) {
-        [GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
+        //[GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"];
         
         /*
 		// only request a video interstitial if one is not being played.
@@ -1422,7 +1428,9 @@
 	}
 	
 	if (!self.viewController) {
-		self.viewController = [[UINavigationController alloc] initWithRootViewController:lobbyViewController];
+        UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:lobbyViewController];
+		self.viewController = controller;
+        [controller release];
 		self.viewController.navigationBarHidden = YES;
 		
 		[_window addSubview:self.viewController.view];
