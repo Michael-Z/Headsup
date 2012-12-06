@@ -2513,11 +2513,45 @@
 
 - (void) enableProUpgrade {
 	// remove ad view from all views
-	UIView *adViewInGameView = [_picker viewWithTag:AD_VIEW_TAG];
-	[adViewInGameView removeFromSuperview];
-	
-	UIView *adViewInPrefsView = [prefsViewController.view viewWithTag:AD_VIEW_TAG];
-	[adViewInPrefsView removeFromSuperview];
+	UIView *adView = [poker3GViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+    
+    adView = [helpViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+    
+    adView = [prefsViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [gameCenterViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [selectModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [holdemToolModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [holdemGameModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [holdemTrainingModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [omahaToolModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [omahaGameModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [omahaTrainingModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [blackjackGameModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
+    adView = [blackjackHeadsupModeViewController.view viewWithTag:AD_VIEW_TAG];
+	[adView removeFromSuperview];
+
 	
 	// hide the buy button
     UIView *buyButton = [_picker viewWithTag:BUY_BUTTON_TAG];

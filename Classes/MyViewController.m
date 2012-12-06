@@ -99,6 +99,7 @@
         // Create a view of the standard size at the top of the screen.
         // Available AdSize constants are explained in GADAdSize.h.
         bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        bannerView_.tag = AD_VIEW_TAG;
         
         // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
         bannerView_.adUnitID = GOOGLE_ADMOB_IPHONE_BANNER_MEDIATION_ID;
