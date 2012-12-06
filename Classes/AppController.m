@@ -335,7 +335,7 @@ void iPhoneUncaughtExceptionHandler(NSException *exception) {
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
     NSSetUncaughtExceptionHandler(&iPhoneUncaughtExceptionHandler);
-    [Flurry startSession:@"65009f9a5d08b9fa69efcb9f546af39e"];
+    [Flurry startSession:FLURRY_APP_ID];
     
 	// start Applytics
 	/*NSString *appKey = @"yS1hOYqeDSnhzMX79"; 
