@@ -18,6 +18,8 @@
 #import "Picker.h"
 #import "Reachability.h"
 
+#import "Flurry.h"
+
 #import "Poker3GView.h"
 
 #import "HeadsupView.h"
@@ -326,8 +328,15 @@
     }
 }
 
+void iPhoneUncaughtExceptionHandler(NSException *exception) {
+    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    NSSetUncaughtExceptionHandler(&iPhoneUncaughtExceptionHandler);
+    [Flurry startSession:@"65009f9a5d08b9fa69efcb9f546af39e"];
+    
 	// start Applytics
 	/*NSString *appKey = @"yS1hOYqeDSnhzMX79"; 
 	[[Applytics sharedService] setAppKey:appKey];
