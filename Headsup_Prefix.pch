@@ -6,6 +6,14 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 
+#if DEBUG
+#define NSLog( s, ... ) NSLog( @"%s(%d) %@",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define NSLog( s, ... )
+#endif
+
+#define FLURRY_APP_ID @"65009f9a5d08b9fa69efcb9f546af39e"
+
 #define GOOGLE_ADMOB_IPHONE_BANNER_MEDIATION_ID @"551e6ef9f6894331"
 
 #define GS_IPHONE_INTERSTITAL_GUID @"95d0808a-28ec-4fe6-ba6d-e138914cd2f4"
